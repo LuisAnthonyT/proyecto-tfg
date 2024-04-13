@@ -37,7 +37,7 @@
                 </div>
             </div> --}}
 
-            <p class="mt-12 text-xs text-center font-light text-gray-400">¿No tienes cuenta? <a href="{{ route('registrate')}}"
+            <p class="mt-12 text-xs text-center font-light text-gray-400">¿No tienes cuenta? <a href="{{ route('signupForm')}}"
                     class="text-black font-medium"> Crear cuenta</a></p>
         </div>
     </div>
