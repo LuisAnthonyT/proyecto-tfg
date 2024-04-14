@@ -41,8 +41,8 @@
                             placeholder="Contraseña" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="password2" class="block text-black">Repite la contraseña</label>
-                        <input required type="password" id="password2" name="password2"
+                        <label for="password_confirmation" class="block text-black">Repite la contraseña</label>
+                        <input required type="password" id="password_confirmation" name="password_confirmation"
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
                             placeholder="Repite la contraseña" />
                     </div>

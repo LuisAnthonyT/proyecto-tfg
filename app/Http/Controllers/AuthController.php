@@ -22,13 +22,13 @@ class AuthController extends Controller
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->phone_number = $request->get('phone_number');
-        $user->birthday = $request->get('birthday');
+        $user->birthdate = $request->get('birthdate');
         $user->password = Hash::make($request->get('password'));
         $user->save();
 
         Auth::login($user);
 
-        return redirect()->route('trainer.index');
+        return redirect()->route('trainer');
     }
 
     public function loginForm()
@@ -48,7 +48,7 @@ class AuthController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('inicio');
+            return redirect()->route('trainer');
         } else {
             $error = 'Error al acceder a la aplicación';
             return view('auth.login', compact('error'));

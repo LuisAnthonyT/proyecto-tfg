@@ -26,7 +26,7 @@ class SignupRequest extends FormRequest
             'name' => ['required', 'string', 'min:2', 'max:255'],
             'email' => ['required', 'string', 'min:10', 'max:255', 'unique:users'],
             'phone_number' => ['required', 'numeric', 'min:9'],
-            'birthday' => ['required'],
+            'birthdate' => ['required'],
             'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ];
     }
@@ -50,7 +50,7 @@ class SignupRequest extends FormRequest
             'phone_number.numeric' => 'El número de teléfono debe de ser totalmente númerico.',
             'phone_number.min' => 'El número de teléfono debe tener al menos :min caracteres.',
 
-            'birthday.required' => 'La fecha de nacimiento es obligatorio',
+            'birthdate.required' => 'La fecha de nacimiento es obligatorio',
 
             'password.required' => 'La contraseña es obligatoria.',
             'password.min' => 'La contraseña debe tener mínimo :min caracteres.',
