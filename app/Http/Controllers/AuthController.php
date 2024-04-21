@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Trainer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\SignupRequest;
+use App\Http\Requests\SignupTrainerRequest;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -16,19 +18,36 @@ class AuthController extends Controller
          return view('auth.signup');
     }
 
-    public function registerUser(SignupRequest $request)
+    public function registerUser(SignupTrainerRequest $request)
     {
-        $user = new User();
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->phone_number = $request->get('phone_number');
-        $user->birthdate = $request->get('birthdate');
-        $user->password = Hash::make($request->get('password'));
-        $user->save();
+        try {
+            //Crear y guadar el usuario
+            $user = new User();
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->role = 'trainer';
+            $user->password = Hash::make($request->get('password'));
+            $user->save();
 
-        Auth::login($user);
+            //Crear y asociar el entrenador al usuario recién creado
+            $trainer = new Trainer();
+            $trainer->user_id = $user->id;
+            $trainer->years_experience = $request->get('experiencie');
+            $trainer->specialization = $request->get('specialization');
+            $trainer->save();
 
-        return redirect()->route('trainer');
+            //Autenticar al usuario recién creado
+            Auth::login($user);
+
+            return redirect()->route('trainer');
+
+        } catch (\Exception $e) {
+            if (!isset($user)) {
+                $user->delete();
+            }
+            Log::error('Error al registrar el usuario: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error al registrar el usuario');
+        }
     }
 
     public function loginForm()

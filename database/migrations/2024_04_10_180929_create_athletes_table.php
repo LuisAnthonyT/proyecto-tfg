@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('athletes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->nullable()->constrained('users');
-            $table->foreignId('trainer_id')->nullable()->constrained('trainers');
-            $table->string('height', 5);
-            $table->string('weight', 5);
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('trainer_id')->constrained('trainers');
+            $table->decimal('height', 5, 2);
+            $table->decimal('weight', 5);
             $table->string('gender', 10);
             $table->string('objetive', 20);
             $table->integer('days_available_week');

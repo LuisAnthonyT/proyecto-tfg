@@ -23,16 +23,16 @@
                             placeholder="Correo electrónico" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="phone_number" class="block text-black">Número de teléfono</label>
-                        <input required type="tel" autofocus id="phone_number" name="phone_number"
+                        <label for="email" class="block text-black">Especialización</label>
+                        <input required type="text" autofocus id="specialization" name="specialization"
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
-                            placeholder="Número de teléfono" />
+                            placeholder="Especialización" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="birthdate" class="block text-black">Fecha de nacimiento:</label>
-                        <input required type="date" autofocus id="birthdate" name="birthdate"
+                        <label for="email" class="block text-black">Años de experiencia</label>
+                        <input required type="number" autofocus id="experiencie" name="experiencie"
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
-                            placeholder="Fecha de nacimiento" />
+                            placeholder="Años de experiencia" />
                     </div>
                     <div class="my-5 text-sm">
                         <label for="password" class="block text-black">Contraseña</label>
@@ -46,7 +46,6 @@
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
                             placeholder="Repite la contraseña" />
                     </div>
-
                     <button
                         class="block text-center text-white bg-gray-800 p-3 duration-300 rounded-sm hover:bg-black w-full">Registrarme</button>
                 </form>
@@ -63,4 +62,10 @@
             </ul>
         </div>
     @endif
+
+    {{-- @if ($error->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center max-w-md mx-auto mb-5" role="alert">
+            <span>{{ $error }}</span>
+        </div>
+    @endif --}}
 @endsection

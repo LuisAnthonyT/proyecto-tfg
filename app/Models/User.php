@@ -20,8 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone_number',
-        'birthdate',
         'role'
     ];
 
@@ -48,13 +46,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function trainers()
+    public function trainer()
     {
-        return $this->hasMany(Trainer::class);
+        return $this->hasOne(Trainer::class);
     }
 
-    public function athletes()
-    {
-        return $this->hasMany(Athlete::class);
-    }
+    // public function athletes()
+    // {
+    //     return $this->hasMany(Athlete::class);
+    // }
 }
