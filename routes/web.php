@@ -10,7 +10,7 @@ use App\Http\Controllers\TrainerController;
 //RUTA PARA OBTENER LA PÁGINA PRINCIPAL
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 //RUTAS PARA REGISTRASE Y LOGUEARSE
 Route::get('signup', [AuthController::class, 'signupForm'])->name('signupForm');
