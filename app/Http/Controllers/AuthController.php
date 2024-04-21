@@ -52,13 +52,13 @@ class AuthController extends Controller
 
     public function loginForm()
     {
-        if (Auth::viaRemember()) {
-            return 'Bienvenido de nuevo';
-        } else if (Auth::check()) {
-            // return redirect()->route('users.account');
-        } else {
+        // if (Auth::viaRemember()) {
+        //     return 'Bienvenido de nuevo';
+        // } else if (Auth::check()) {
+        //     return redirect()->route('users.account');
+        // } else {
             return view('auth.login');
-        }
+        // }
     }
 
     public function login(Request $request)

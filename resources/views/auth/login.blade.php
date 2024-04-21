@@ -12,13 +12,13 @@
                 <form action="" class="mt-6">
                     <div class="my-5 text-sm">
                         <label for="email" class="block text-black">Correo electrónico</label>
-                        <input type="text" autofocus id="email"
+                        <input required type="text" autofocus id="email" name="email"
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
                             placeholder="Correo electrónico" />
                     </div>
                     <div class="my-5 text-sm">
                         <label for="password" class="block text-black">Contraseña</label>
-                        <input type="password" id="password"
+                        <input required type="password" id="password" name="password"
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
                             placeholder="Contraseña" />
                         <div class="flex justify-end mt-2 text-xs text-gray-600">

@@ -15,7 +15,7 @@ Route::get('/', function () {
 //RUTAS PARA REGISTRASE Y LOGUEARSE
 Route::get('signup', [AuthController::class, 'signupForm'])->name('signupForm');
 Route::post('signup', [AuthController::class, 'registerUser'])->name('signup');
-Route::get('login', [AuthController::class, 'loginForm'])->name('login');
+Route::get('login', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
