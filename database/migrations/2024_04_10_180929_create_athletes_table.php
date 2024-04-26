@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('trainer_id')->constrained('trainers');
             $table->decimal('height', 5, 2);
             $table->decimal('weight', 5);
-            $table->string('gender', 10);
+            $table->string('gender', 60);
             $table->string('objetive', 20);
             $table->integer('days_available_week');
 

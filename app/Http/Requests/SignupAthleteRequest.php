@@ -25,11 +25,12 @@ class SignupAthleteRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:2', 'max:255'],
             'email' => ['required', 'string', 'min:10', 'max:255', 'unique:users'],
-            'height' => 'required|numeric|between:0,999.99',
-            'weight' => 'required|numeric|between:0,999.99',
-            'gender' => 'required|string|max:10',
-            'objetive' => 'required|string|max:20',
+            'height' => 'required','numeric','between:0,999.99',
+            'weight' => 'required','numeric','between:0,999.99',
+            'gender' => 'required', 'string', 'max:10',
+            'objetive' => 'required', 'string','max:20',
             'days_available_week' => 'required|integer|min:0|max:7',
+            'date_birth' => 'required', 'date',
             'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ];
     }
@@ -69,6 +70,8 @@ class SignupAthleteRequest extends FormRequest
             'days_available_week.integer' => 'El campo días disponibles por semana debe ser un número entero.',
             'days_available_week.min' => 'El campo días disponibles por semana debe ser como mínimo :min.',
             'days_available_week.max' => 'El campo días disponibles por semana debe ser como máximo :max.',
+
+            'date_birth.required' => 'La fecha de nacimiento es obligatoria',
 
             'password.required' => 'La contraseña es obligatoria.',
             'password.min' => 'La contraseña debe tener mínimo :min carácteres.',

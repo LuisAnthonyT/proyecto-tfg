@@ -51,8 +51,8 @@ class User extends Authenticatable
         return $this->hasOne(Trainer::class);
     }
 
-    // public function athletes()
-    // {
-    //     return $this->hasMany(Athlete::class);
-    // }
+    public function athletes()
+    {
+        return $this->hasOne(Athlete::class);
+    }
 }

@@ -14,8 +14,8 @@ class Trainer extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function athletes()
-    // {
-    //     return $this->hasMany(Athlete::class);
-    // }
+    public function athletes()
+    {
+        return $this->hasMany(Athlete::class);
+    }
 }
