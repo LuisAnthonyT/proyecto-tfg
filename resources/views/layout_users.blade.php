@@ -10,7 +10,7 @@
     </title>
 </head>
 <body>
-    @include('partials.navbarUsers')
+    @include('partials.navbar_users')
 
     @yield('content')
 </body>
