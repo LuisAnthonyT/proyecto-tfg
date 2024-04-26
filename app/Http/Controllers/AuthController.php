@@ -67,7 +67,7 @@ class AuthController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('trainer');
+            return redirect()->route('trainer.index');
         } else {
             $error = 'Error al acceder a la aplicación';
             return view('auth.login', compact('error'));
