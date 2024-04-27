@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TrainerController;
-
+use App\Http\Middleware\IsTrainer;
 
 //GET HOME VIEW
 Route::get('/', function () {
@@ -22,10 +22,14 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //ROUTES RESOURCE TRAINER
-Route::resource('trainer', TrainerController::class);
+Route::resource('trainer', TrainerController::class)->middleware(isTrainer::class);
 
 //GET VIEW CREATE ATHLETE BY TRAINER
-Route::get('create_athlete', [TrainerController::class,'createAthleteView'])->name('view-create-athlete');
+Route::get('create_athlete', [TrainerController::class, 'createAthleteView'])
+->name('view-create-athlete')
+->middleware(isTrainer::class);
 
 //CREATE ATHLETE BY TRAINER
-Route::post('create_athlete/{trainer}', [TrainerController::class,'createAthleteByTrainer'])->name('create-athlete');
+Route::post('create_athlete/{trainer}', [TrainerController::class, 'createAthleteByTrainer'])
+->name('create-athlete')
+->middleware(isTrainer::class);
