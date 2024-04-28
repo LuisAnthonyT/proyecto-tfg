@@ -13,6 +13,7 @@
     @include('partials.navbar')
 
     @yield('content')
+    @yield('js')
 
     @include('partials.footer')
 </body>

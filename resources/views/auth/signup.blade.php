@@ -21,6 +21,7 @@
                         <input required type="text" autofocus id="email" name="email"
                             class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
                             placeholder="Correo electrónico" />
+                            <p id="emailStatus" class="mt-2 text-sm font-medium"></p>
                     </div>
                     <div class="my-5 text-sm">
                         <label for="email" class="block text-black">Especialización</label>
@@ -62,10 +63,7 @@
             </ul>
         </div>
     @endif
-
-    {{-- @if ($error->any())
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center max-w-md mx-auto mb-5" role="alert">
-            <span>{{ $error }}</span>
-        </div>
-    @endif --}}
+@endsection
+@section('js')
+    <script src="/js/auth/verifyEmail.js" defer></script>
 @endsection

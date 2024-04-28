@@ -13,5 +13,6 @@
     @include('partials.navbar_users')
 
     @yield('content')
+    @yield('js')
 </body>
 </html>

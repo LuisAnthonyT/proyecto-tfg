@@ -23,7 +23,8 @@
                                 <input required type="email" name="email" id="email" value="{{ old('email')}}"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                     placeholder="Ejemplo: juan@gmail.com">
-                            </div>
+                                    <p id="emailStatus" class="mt-2 text-sm font-medium"></p>
+                                </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="height" class="text-sm font-medium text-gray-900 block mb-2">Altura</label>
                                 <input required type="number" step="0.01" name="height" id="height" value="{{ old('height')}}"
@@ -100,4 +101,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="/js/auth/verifyEmail.js" defer></script>
 @endsection
