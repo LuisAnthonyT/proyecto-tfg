@@ -22,7 +22,9 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //ROUTES RESOURCE TRAINER
-Route::resource('trainer', TrainerController::class)->middleware(isTrainer::class);
+Route::resource('trainer', TrainerController::class)
+->middleware(isTrainer::class)
+->except(['edit']);
 
 //GET VIEW CREATE ATHLETE BY TRAINER
 Route::get('create_athlete', [TrainerController::class, 'createAthleteView'])
@@ -33,3 +35,13 @@ Route::get('create_athlete', [TrainerController::class, 'createAthleteView'])
 Route::post('create_athlete/{trainer}', [TrainerController::class, 'createAthleteByTrainer'])
 ->name('create-athlete')
 ->middleware(isTrainer::class);
+
+//GET VIEW ACCOUNT TRAINER
+Route::get('account', [TrainerController::class, 'edit'])
+->name('view-account-trainer')
+->middleware(isTrainer::class);
+
+//GET INDEX MESSAGE
+Route::get('/messages', function () {
+    return view('messages.index');
+})->name('messages');
