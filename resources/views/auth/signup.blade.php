@@ -11,40 +11,40 @@
                 <h1 class="font-medium text-2xl mt-3 text-center">Registrate</h1>
                 <form action="" class="mt-6">
                     <div class="my-5 text-sm">
-                        <label for="name" class="block text-black">Nombre</label>
+                        <label for="name" class="text-sm font-medium text-gray-900 block mb-2">Nombre</label>
                         <input required type="text" autofocus id="name" name="name"
-                            class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="Nombre completo" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="email" class="block text-black">Correo electrónico</label>
+                        <label for="email" class="text-sm font-medium text-gray-900 block mb-2">Correo electrónico</label>
                         <input required type="text" autofocus id="email" name="email"
-                            class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="Correo electrónico" />
                             <p id="emailStatus" class="mt-2 text-sm font-medium"></p>
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="email" class="block text-black">Especialización</label>
+                        <label for="email" class="text-sm font-medium text-gray-900 block mb-2">Especialización</label>
                         <input required type="text" autofocus id="specialization" name="specialization"
-                            class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="Especialización" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="email" class="block text-black">Años de experiencia</label>
+                        <label for="email" class="text-sm font-medium text-gray-900 block mb-2">Años de experiencia</label>
                         <input required type="number" autofocus id="experiencie" name="experiencie"
-                            class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="Años de experiencia" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="password" class="block text-black">Contraseña</label>
+                        <label for="password" class="text-sm font-medium text-gray-900 block mb-2">Contraseña</label>
                         <input required type="password" id="password" name="password"
-                            class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="Contraseña" />
                     </div>
                     <div class="my-5 text-sm">
-                        <label for="password_confirmation" class="block text-black">Repite la contraseña</label>
+                        <label for="password_confirmation" class="text-sm font-medium text-gray-900 block mb-2">Repite la contraseña</label>
                         <input required type="password" id="password_confirmation" name="password_confirmation"
-                            class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="Repite la contraseña" />
                     </div>
                     <button

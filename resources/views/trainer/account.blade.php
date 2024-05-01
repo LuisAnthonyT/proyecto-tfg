@@ -22,6 +22,7 @@
                                 <label for="email" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
                                 <input type="email" name="email" id="email" value="{{ $user->email }}"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
+                                <p id="emailStatus" class="mt-2 text-sm font-medium text-red-600 text-green-600"></p>
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="specialization" class="text-sm font-medium text-gray-900 block mb-2">Especialización</label>
@@ -54,4 +55,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="/js/auth/verifyEmail.js" defer></script>
 @endsection
