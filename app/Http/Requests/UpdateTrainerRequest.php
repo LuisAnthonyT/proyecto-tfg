@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTrainerRequest extends FormRequest
 {
@@ -21,14 +22,15 @@ class UpdateTrainerRequest extends FormRequest
      */
     public function rules(): array
     {
+        $userId = $this->user()->id;
+
         return [
             'name' => ['required', 'string', 'min:2', 'max:255'],
-            'email' => ['required', 'string', 'min:10', 'max:255', 'unique:users'],
-            'experiencie' => ['required', 'numeric'],
+            'email' => ['required', 'string', 'min:10', 'max:255', Rule::unique('users')->ignore($userId)],
+            'years_experience' => ['required', 'numeric'],
             'specialization' => ['required', 'min:4'],
         ];
     }
-
     public function messages ()
     {
         return [
