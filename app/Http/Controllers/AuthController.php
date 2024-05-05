@@ -39,7 +39,7 @@ class AuthController extends Controller
             //Autenticar al usuario recién creado
             Auth::login($user);
 
-            return redirect()->route('trainer');
+            return redirect()->route('trainer.index');
 
         } catch (\Exception $e) {
             if (!isset($user)) {
