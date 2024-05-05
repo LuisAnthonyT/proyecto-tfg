@@ -88,7 +88,22 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        Message::findOrFail($message->id)->delete();
-        return redirect()->route('messages.index');
+        $user = Auth::user();
+
+        if ($message->sender_id == $user->id ) {
+            Message::findOrFail($message->id)->delete();
+            return redirect()->route('messages_sent');
+
+        } else {
+            Message::findOrFail($message->id)->delete();
+            return redirect()->route('messages.index');
+        }
+    }
+
+    public function showMessagesSent ()
+    {
+        $user = Auth::user();
+        $messages = $user->sentMessages()->orderBy('created_at', 'desc')->get();
+        return view ('messages.messages_sent', compact('messages'));
     }
 }

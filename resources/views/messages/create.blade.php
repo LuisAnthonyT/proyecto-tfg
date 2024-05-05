@@ -15,7 +15,7 @@
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="receiver_id"
                                 class="text-sm font-medium text-gray-900 block mb-2">Correo</label>
-                                <select id="receiver_id" name="receiver_id"
+                                <select required id="receiver_id" name="receiver_id"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5">
                                     <option disabled selected >Elije el correo de un atleta</option>
                                     @if ($athletes->isEmpty())
@@ -29,12 +29,12 @@
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="subject" class="text-sm font-medium text-gray-900 block mb-2">Asunto</label>
-                                <input type="text" name="subject" id="subject"
+                                <input required type="text" name="subject" id="subject"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
                             </div>
                             <div class="col-span-6 sm:col-span-6">
                                 <label for="text" class="text-sm font-medium text-gray-900 block mb-2">Mensaje</label>
-                                <textarea
+                                <textarea required
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                     id="text" name="text"></textarea>
                             </div>
