@@ -47,7 +47,7 @@ class MessageController extends Controller
             $message->text = $request->get('text');
             $message->save();
 
-            return redirect()->route('messages.index');
+            return redirect()->route('messages_sent');
 
         } catch (\Exception $e){
             Log::error('Error al enviar el mensaje: ' . $e->getMessage());
