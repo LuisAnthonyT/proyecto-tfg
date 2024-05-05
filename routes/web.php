@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\MessageController;
 use App\Http\Middleware\IsTrainer;
+use App\Http\Middleware\IsLogin;
 
 //GET HOME VIEW
 Route::get('/', function () {
@@ -41,7 +43,6 @@ Route::get('account', [TrainerController::class, 'edit'])
 ->name('view-account-trainer')
 ->middleware(isTrainer::class);
 
-//GET INDEX MESSAGE
-Route::get('/messages', function () {
-    return view('messages.index');
-})->name('messages');
+//ROUTES RESOURCE MESSAGE
+Route::resource('messages', MessageController::class)
+->middleware(isLogin::class);
