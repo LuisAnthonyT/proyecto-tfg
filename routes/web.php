@@ -46,3 +46,8 @@ Route::get('account', [TrainerController::class, 'edit'])
 //ROUTES RESOURCE MESSAGE
 Route::resource('messages', MessageController::class)
 ->middleware(isLogin::class);
+
+//GET VIEW MESSAGES SEND
+Route::get('messages_sent', [MessageController::class, 'showMessagesSent'])
+->name('messages_sent')
+->middleware(isTrainer::class);
