@@ -9,6 +9,19 @@ class Athlete extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'height',
+        'weight',
+        'gender',
+        'days_available_week',
+        'date_birth'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
