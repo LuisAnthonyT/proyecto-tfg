@@ -1,4 +1,4 @@
-@extends('layout_users')
+@extends('layouts.layout_users')
 @section('title', 'Mensajes recibidos')
 @section('content')
     <div class="p-4 sm:ml-64">

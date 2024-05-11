@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('title', 'Iniciar sesión')
 
@@ -49,4 +49,9 @@
             </div>
         </form>
     </div>
+    @if(isset($error))
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center max-w-md mx-auto mb-5" role="alert">
+        {{ $error }}
+    </div>
+@endif
 @endsection

@@ -11,7 +11,7 @@
     </title>
 </head>
 <body>
-    @include('partials.navbar_users')
+    @include('partials.navbar_trainers')
 
     @yield('content')
     @yield('js')
