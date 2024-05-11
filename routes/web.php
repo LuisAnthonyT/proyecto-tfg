@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Middleware\IsTrainer;
 use App\Http\Middleware\IsLogin;
@@ -39,7 +40,7 @@ Route::post('create_athlete/{trainer}', [TrainerController::class, 'createAthlet
 ->middleware(isTrainer::class);
 
 //GET VIEW ACCOUNT TRAINER
-Route::get('account', [TrainerController::class, 'edit'])
+Route::get('account-trainer', [TrainerController::class, 'edit'])
 ->name('view-account-trainer')
 ->middleware(isTrainer::class);
 
@@ -50,4 +51,19 @@ Route::resource('messages', MessageController::class)
 //GET VIEW MESSAGES SEND
 Route::get('messages_sent', [MessageController::class, 'showMessagesSent'])
 ->name('messages_sent')
-->middleware(isTrainer::class);
+->middleware(isLogin::class);
+
+//ROUTES RESOURCE ATHLETE
+Route::resource('athlete', AthleteController::class)
+->middleware(isLogin::class)
+->except(['edit']);
+
+//GET VIEW ACCOUNT ATHLETE
+Route::get('account-athlete', [AthleteController::class, 'edit'])
+->name('view-account-athlete')
+->middleware(isLogin::class);
+
+//GET PLANNING VIEW
+Route::get('planning', function () {
+    return view('planning');
+})->name('planning');
