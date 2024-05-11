@@ -26,10 +26,24 @@ class MessageController extends Controller
      */
     public function create()
     {
-        $trainer = Auth::user()->trainer;
-        $athletes = $trainer->athletes;
+        try{
+            if (auth()->check() && auth()->user()->role === 'trainer') {
+                $trainer = Auth::user()->trainer;
+                $athletes = $trainer->athletes;
 
-        return view ('messages.create', compact('athletes'));
+                return view ('messages.create', compact('athletes'));
+
+            } else {
+                $athlete = Auth::user()->athlete;
+                $trainer = $athlete->trainer;
+
+                return view ('messages.create', compact('trainer'));
+            }
+
+        }  catch (\Exception $e){
+            Log::error('Error al abrir la vista crear mensaje: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error');
+        }
     }
 
     /**
