@@ -24,7 +24,7 @@ class TrainerController extends Controller
         $trainer = Auth::user()->trainer;
         $athletes = $trainer->athletes;
 
-        return view('trainer.index', compact('athletes'));
+        return view('trainer.athletes', compact('athletes'));
     }
 
     /**
