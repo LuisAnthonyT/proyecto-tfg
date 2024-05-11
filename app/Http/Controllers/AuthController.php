@@ -67,7 +67,16 @@ class AuthController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
+            $user = Auth::user();
+
+            if ($user->role == 'trainer') {
+                return redirect()->route('trainer.index');
+
+            } elseif ($user->role == 'athlete') {
+                return redirect()->route('athlete.index');
+        }
             return redirect()->route('trainer.index');
+
         } else {
             $error = 'Error al acceder a la aplicación';
             return view('auth.login', compact('error'));
