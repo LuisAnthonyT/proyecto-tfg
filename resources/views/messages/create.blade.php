@@ -1,4 +1,4 @@
-@extends('layout_users')
+@extends('layouts.layout_users')
 @section('title', 'Redactar mensaje')
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -17,13 +17,18 @@
                                 class="text-sm font-medium text-gray-900 block mb-2">Correo</label>
                                 <select required id="receiver_id" name="receiver_id"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5">
-                                    <option disabled selected >Elije el correo de un atleta</option>
+                                    @if (isset($athletes))
                                     @if ($athletes->isEmpty())
-                                        <option disabled>No hay atletas</option>
+                                    <option disabled>No hay atletas</option>
                                     @else
-                                        @foreach ($athletes as $athlete )
-                                            <option value="{{ $athlete->user->id}}">{{$athlete->user->email}}</option>
-                                        @endforeach
+                                    <option disabled selected >Elije el correo de un atleta</option>
+                                            @foreach ($athletes as $athlete )
+                                                <option value="{{ $athlete->user->id}}">{{$athlete->user->email}}</option>
+                                            @endforeach
+                                        @endif
+                                    @endif
+                                    @if(isset($trainer))
+                                        <option selected value="{{ $trainer->user->id}}">{{$trainer->user->email}}</option>
                                     @endif
                                 </select>
                             </div>
