@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NutritionController;
 use App\Http\Middleware\IsTrainer;
 use App\Http\Middleware\IsLogin;
 
@@ -63,7 +64,7 @@ Route::get('account-athlete', [AthleteController::class, 'edit'])
 ->name('view-account-athlete')
 ->middleware(isLogin::class);
 
-//GET PLANNING VIEW
-Route::get('planning', function () {
-    return view('planning');
-})->name('planning');
+//ROUTES RESOURCE NUTRITION
+Route::resource('nutrition', NutritionController::class)
+->middleware(isLogin::class)
+->except(['edit']);
