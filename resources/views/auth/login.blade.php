@@ -27,9 +27,12 @@
                             </div>
                         </div>
 
-                        <button
-                            class="block text-center text-white bg-gray-800 p-3 border-t duration-300 rounded-sm hover:bg-black w-full">Iniciar
-                            sesión</button>
+                        <div class="border-t border-gray-200 rounded-b flex justify-center">
+                            <button class="rounded-lg text-center text-white bg-gray-800 p-3 duration-300 rounded-sm hover:bg-black w-full">Iniciar
+                                sesión
+                            </button>
+
+                        </div>
                     </form>
 
                     {{-- <div class="grid md:grid-cols-2 gap-2 mt-7">
