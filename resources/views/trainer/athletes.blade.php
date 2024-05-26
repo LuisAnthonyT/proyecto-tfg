@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4 sm:ml-64">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <table class="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
                 @if ($athletes->isEmpty())
                     <div class="flex items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
                         role="alert">
@@ -49,7 +49,7 @@
                                     {{ $athlete->days_available_week }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ route('planning')}}"
+                                    <a href="{{ route('nutrition.show', $athlete->id)}}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Planificación</a>
                                 </td>
                             </tr>
