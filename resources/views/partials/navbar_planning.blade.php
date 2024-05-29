@@ -15,12 +15,12 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800 text-white">
         <div class="flex flex-col items-center">
             <img class="object-cover w-24 h-24 mx-2 rounded-full" src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg" alt="avatar">
-            <h4 class="mx-2 mt-2 mb-6 text-white dark:text-gray-200 uppercase font-bold	">John Doe</h4>
+            <h4 class="mx-2 mt-2 mb-6 text-white dark:text-gray-200 uppercase font-bold	">{{ $athlete->user->name}}</h4>
         </div>
 
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="{{ route('athlete.index') }}"
+                <a href=""
                     class="flex items-center p-2 text-white rounded-lg  hover:bg-white hover:text-gray-900 group">
                     <svg class="flex-shrink-0 w-6 h-6 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li>
-                <a href=""
+                <a href="{{ route('nutrition.show', $athlete->id)}}"
                     class="flex items-center p-2 text-white rounded-lg  hover:bg-white hover:text-gray-900 group">
                     <svg class="flex-shrink-0 w-6 h-6 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href=""
+                <a href="{{ route('register.show', $athlete->id)}}"
                     class="flex items-center p-2 text-white rounded-lg  hover:bg-white hover:text-gray-900 group">
                     <svg class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
