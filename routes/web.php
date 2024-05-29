@@ -8,6 +8,7 @@ use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NutritionController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Middleware\IsTrainer;
 use App\Http\Middleware\IsLogin;
 
@@ -68,3 +69,9 @@ Route::get('account-athlete', [AthleteController::class, 'edit'])
 Route::resource('nutrition', NutritionController::class)
 ->middleware(isLogin::class)
 ->except(['edit']);
+
+//ROUTES RESOURCE REGISTER
+Route::resource('register', RegisterController::class)
+->middleware(isLogin::class)
+->except(['edit'])
+->middleware(isLogin::class);
