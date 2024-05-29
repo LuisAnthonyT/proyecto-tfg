@@ -1,25 +1,8 @@
-@extends('layouts.layout_planning')
-@section('title', 'Planificación')
+@extends('layouts.layout_users')
+@section('title', 'Nutrición')
 
 @section('content')
     <div class="p-4 sm:ml-64">
-        <div class="flex items-center justify-between mb-3">
-            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white"></h5>
-            <div class="flex items-center">
-                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                    class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ml-2">
-                    <svg class="w-4 h-4 text-white me-2" xmlns="http://www.w3.org/2000/svg" height="24px"
-                        viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
-                        <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
-                    </svg>
-                    Añadir
-                </button>
-                <button href=""
-                    class="ml-2 px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-700">
-                    Eliminar todo
-                </button>
-            </div>
-        </div>
         @if ($registers->isEmpty())
             <div class="flex items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
                 role="alert">
@@ -82,8 +65,4 @@
             </div>
         @endif
     </div>
-    @include('modals.add_nutrition')
-@endsection
-@section('js')
-    <script defer src="/js/nutrition/addNutrition.js"></script>
 @endsection
