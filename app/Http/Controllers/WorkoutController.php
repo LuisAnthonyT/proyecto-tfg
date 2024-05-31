@@ -92,7 +92,7 @@ class WorkoutController extends Controller
                 return view('workout.show_trainer', compact('workouts', 'athlete'));
             }
 
-            // return view('nutrition.show_athlete', compact('registers'));
+            return view('workout.show_athlete', compact('workouts'));
 
         } catch (Exception $e) {
             Log::error('Error al obtener el entrenamiento del atleta: ' . $e->getMessage());

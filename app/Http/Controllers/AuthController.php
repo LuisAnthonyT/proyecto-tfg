@@ -73,7 +73,7 @@ class AuthController extends Controller
                 return redirect()->route('trainer.index');
 
             } elseif ($user->role == 'athlete') {
-                return redirect()->route('athlete.index');
+                return redirect()->route('workout.show', $user->athlete->id);
         }
             return redirect()->route('trainer.index');
 

@@ -60,7 +60,7 @@
                     $athlete = auth()->user()->athlete;
                 ?>
                     <li>
-                        <a href="{{ route('athlete.index') }}"
+                        <a href="{{ route('workout.show', $athlete->id)}}"
                             class="flex items-center p-2 text-white rounded-lg  hover:bg-white hover:text-gray-900 group">
                             <svg class="flex-shrink-0 w-6 h-6 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
