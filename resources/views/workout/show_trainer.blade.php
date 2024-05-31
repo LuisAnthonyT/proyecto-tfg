@@ -4,7 +4,9 @@
 @section('content')
     <div class="p-4 sm:ml-64">
         <div class="flex items-center justify-between mb-3">
-            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white"></h5>
+            <h5 class="text-xl font-semibold leading-none text-gray-900 dark:text-white">
+
+            </h5>
             <div class="flex items-center">
                 <button data-modal-target="add-workout" data-modal-toggle="add-workout"
                     class="ml-2 px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ml-2">
@@ -50,7 +52,7 @@
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <a href="">{{ $workout->day }}</a>
+                            <a href="" class="hover:underline">{{ $workout->day }}</a>
                         </th>
                         <td class="px-6 py-4">
                             {{ $workout->number_sessions }}
