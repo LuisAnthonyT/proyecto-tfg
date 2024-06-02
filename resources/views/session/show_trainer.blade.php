@@ -1,14 +1,14 @@
 @extends('layouts.layout_planning')
-@section('title', 'Entrenamiento')
+@section('title', $workout->day)
 
 @section('content')
     <div class="p-4 sm:ml-64">
         <div class="flex items-center justify-between mb-3">
-            <h5 class="text-xl font-semibold leading-none text-gray-900 dark:text-white">
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
 
             </h5>
             <div class="flex items-center">
-                <button data-modal-target="add-workout" data-modal-toggle="add-workout"
+                <button data-modal-target="add-session" data-modal-toggle="add-session"
                     class="ml-2 px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ml-2">
                     <svg class="w-4 h-4 text-white me-2" xmlns="http://www.w3.org/2000/svg" height="24px"
                         viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
@@ -18,7 +18,8 @@
                 </button>
             </div>
         </div>
-        @if ($workouts->isEmpty())
+
+        @if ($sessions->isEmpty())
             <div class="flex items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
                 role="alert">
                 <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -28,19 +29,32 @@
                 </svg>
                 <span class="sr-only">Info</span>
                 <div>
-                    <span class="font-medium">No hay entrenamiento</span>
+                    <span class="font-medium">No hay ejercicios aún</span>
                 </div>
             </div>
         @else
+
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Dia
+                            Ejercicio
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Número de sesiones
+                            Descanso
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Series
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Reps
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            RIR
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Peso x Reps
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Acciones
@@ -48,21 +62,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($workouts as $workout)
+                    @foreach ($sessions as $session)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <a href="{{ route('session.show', $workout->id)}}" class="hover:underline">{{ $workout->day }}</a>
+                            {{ $session->exercise }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $workout->number_sessions }}
+                            {{ $session->rest }}
                         </td>
                         <td class="px-6 py-4">
-                            <button data-modal-target="modify-workout-modal{{$workout->id}}" data-modal-toggle="modify-workout-modal{{$workout->id}}"
+                            {{ $session->sets }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $session->reps }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $session->rir }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $session->weight_reps }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <button data-modal-target="modify-session-modal{{$session->id}}" data-modal-toggle="modify-session-modal{{$session->id}}"
                                 type="button" class="px-3 font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                 Modificar
                             </button>
-                            <button data-modal-target="delete-workout-modal{{$workout->id}}" data-modal-toggle="delete-workout-modal{{$workout->id}}"
+                            <button data-modal-target="delete-session-modal{{$session->id}}" data-modal-toggle="delete-session-modal{{$session->id}}"
                                 type="button" class="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 Eliminar
                             </button>
@@ -74,7 +100,8 @@
         </div>
         @endif
     </div>
-@include('modals.workout.add_workout')
-@include('modals.workout.modify_workout')
-@include('modals.workout.delete_workout')
+    @include('modals.session.add_session')
+    @include('modals.session.modify_session')
+    @include('modals.session.delete_session')
+
 @endsection

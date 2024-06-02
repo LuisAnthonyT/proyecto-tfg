@@ -10,6 +10,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NutritionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\SessionWorkoutController;
 use App\Http\Middleware\IsTrainer;
 use App\Http\Middleware\IsLogin;
 
@@ -76,7 +77,12 @@ Route::resource('register', RegisterController::class)
 ->middleware(isLogin::class)
 ->except(['edit']);
 
-//ROUTES RESOURCE WORKPUT
+//ROUTES RESOURCE WORKOUT
 Route::resource('workout', WorkoutController::class)
+->middleware(isLogin::class)
+->except(['edit']);
+
+//ROUTES RESOURCE SESSION Workout
+Route::resource('session', SessionWorkoutController::class)
 ->middleware(isLogin::class)
 ->except(['edit']);
