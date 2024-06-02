@@ -1,24 +1,10 @@
-@extends('layouts.layout_planning')
+@extends('layouts.layout_users')
 @section('title', $workout->day)
 
 @section('content')
     <div class="p-4 sm:ml-64">
         <div class="flex items-center justify-between mb-3">
-            {{-- <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white"></h5> --}}
-            <div class="flex items-center justify-between mb-3">
-                <a href="{{ route('workout.show', $workout->athlete_id)}}" class="px-3 font-bold text-dark-600 dark:text-dark-500 hover:underline" tabindex="0" role="button">Volver</a>
-            </div>
-            
-            <div class="flex items-center">
-                <button data-modal-target="add-session" data-modal-toggle="add-session"
-                    class="ml-2 px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ml-2">
-                    <svg class="w-4 h-4 text-white me-2" xmlns="http://www.w3.org/2000/svg" height="24px"
-                        viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
-                        <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
-                    </svg>
-                    Añadir
-                </button>
-            </div>
+            <a href="{{ route('workout.show', $workout->athlete_id)}}" class="px-3 font-bold text-dark-600 dark:text-dark-500 hover:underline" tabindex="0" role="button">Volver</a>
         </div>
 
         @if ($sessions->isEmpty())
@@ -86,13 +72,9 @@
                             {{ $session->weight_reps }}
                         </td>
                         <td class="px-6 py-4">
-                            <button data-modal-target="modify-session-modal{{$session->id}}" data-modal-toggle="modify-session-modal{{$session->id}}"
+                            <button data-modal-target="modify-session-athlete-modal{{$session->id}}" data-modal-toggle="modify-session-athlete-modal{{$session->id}}"
                                 type="button" class="px-3 font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                 Modificar
-                            </button>
-                            <button data-modal-target="delete-session-modal{{$session->id}}" data-modal-toggle="delete-session-modal{{$session->id}}"
-                                type="button" class="font-medium text-red-600 dark:text-red-500 hover:underline">
-                                Eliminar
                             </button>
                         </td>
                     </tr>
@@ -102,8 +84,5 @@
         </div>
         @endif
     </div>
-    @include('modals.session.add_session')
-    @include('modals.session.modify_session')
-    @include('modals.session.delete_session')
-
+    @include('modals.session.modify_session_athlete')
 @endsection

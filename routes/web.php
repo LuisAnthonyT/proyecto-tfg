@@ -82,7 +82,12 @@ Route::resource('workout', WorkoutController::class)
 ->middleware(isLogin::class)
 ->except(['edit']);
 
-//ROUTES RESOURCE SESSION Workout
+//ROUTES RESOURCE SESSION WORKOUT
 Route::resource('session', SessionWorkoutController::class)
 ->middleware(isLogin::class)
 ->except(['edit']);
+
+//MODIFY WEIGHT X REPS ATHLETE
+Route::put('modify_weight_reps/{session}', [SessionWorkoutController::class, 'updateWeightRepsByAthlete'])
+->name('modify-weight-reps')
+->middleware(isLogin::class);

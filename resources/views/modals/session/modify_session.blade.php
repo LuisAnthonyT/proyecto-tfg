@@ -23,7 +23,7 @@
                     <div class="grid grid-cols-3 gap-2">
                         <div class="my-2 col-span-6 sm:col-span-6">
                             <label for="exercise" class="text-sm font-medium text-gray-900 block mb-2">Elije un ejercicio</label>
-                            <select  id="exercise" name="exercise" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5">
+                            <select required id="exercise" name="exercise" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5">
                               <option value="{{ $session->exercise }}">{{ $session->exercise }}</option>
                               @if (isset($exercises))
                                 @if ($exercises->isEmpty())
@@ -38,25 +38,25 @@
                         </div>
                         <div class=" my-2 col-span-6 sm:col-span-6">
                             <label for="rest" class="text-sm font-medium text-gray-900 block mb-2">Descanso</label>
-                            <input  type="text" autofocus id="rest" name="rest"
+                            <input required type="text" autofocus id="rest" name="rest"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 value="{{ $session->rest }}"/>
                         </div>
                         <div class=" my-2 col-span-6 sm:col-span-6">
                             <label for="sets" class="text-sm font-medium text-gray-900 block mb-2">Series</label>
-                            <input  type="text" autofocus id="sets" name="sets"
+                            <input required type="text" autofocus id="sets" name="sets"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 value="{{ $session->sets }}"/>
                         </div>
                         <div class=" my-2 col-span-6 sm:col-span-6">
                             <label for="reps" class="text-sm font-medium text-gray-900 block mb-2">Repeticiones</label>
-                            <input  type="text" autofocus id="reps" name="reps"
+                            <input required type="text" autofocus id="reps" name="reps"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 value="{{ $session->reps }}"/>
                         </div>
                         <div class=" my-2 col-span-6 sm:col-span-6">
                             <label for="rir" class="text-sm font-medium text-gray-900 block mb-2">RIR</label>
-                            <input  type="text" autofocus id="rir" name="rir"
+                            <input required type="text" autofocus id="rir" name="rir"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 value="{{ $session->rir }}"/>
                         </div>

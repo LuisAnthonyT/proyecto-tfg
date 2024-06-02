@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class SessionWorkoutController extends Controller
 {
@@ -94,10 +95,16 @@ class SessionWorkoutController extends Controller
         $athlete = Athlete::findOrFail($workout->athlete_id);
 
         //Obtenemos todos los ejercicios y las sesiones del atleta
-        $exercises = Exercise::get();
         $sessions = SessionWorkout::where('workouts_id', $workout->id)->get();
 
-        return view('session.show_trainer', compact('athlete', 'workout', 'exercises', 'sessions'));
+        if (auth()->user()->role === 'trainer') {
+            //Obtenemos todos los ejercicios
+            $exercises = Exercise::get();
+
+            return view('session.show_trainer', compact('athlete', 'workout', 'exercises', 'sessions'));
+        }
+
+        return view('session.show_athlete', compact('athlete', 'workout', 'sessions'));
     }
 
     /**
@@ -187,5 +194,40 @@ class SessionWorkoutController extends Controller
             ], 500);
         }
 
+    }
+
+     /**
+     * Update the specified resource in storage.
+     */
+    public function updateWeightRepsByAthlete(Request $request, SessionWorkout $session)
+    {
+        try {
+            //Validaciones
+            $validator = Validator::make($request->all(), [
+                'weight_reps' => 'required|string|max:150',
+            ]);
+
+            if ($validator->fails()) {
+                $data = [
+                    'message' => 'Error en la validación de datos',
+                    'errors' => $validator->errors(),
+                    'status' => 400
+                ];
+                return response()->json($data, 400);
+            }
+
+            // Crear un nuevo registro de sesión
+            $session->update([
+                'weight_reps' => $request->weight_reps,
+            ]);
+
+            $workoutId = $session->workouts_id;
+
+            return redirect()->route('session.show', $workoutId);
+
+        } catch (Exception $e) {
+            Log::error('Error al modificar el campo peso x reps: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error al modificar el campo peso x reps');
+        }
     }
 }
