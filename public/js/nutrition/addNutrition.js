@@ -1,7 +1,7 @@
 const btnAdd = document.getElementById('addNutrition');
 btnAdd.addEventListener('click', async () => {
+
     const data = {
-        trainer_id: document.getElementById('trainer_id').value,
         athlete_id: document.getElementById('athlete_id').value,
         day_type: document.getElementById('day_type').value,
         carbohydrates: document.getElementById('carbohydrates').value,
@@ -9,13 +9,13 @@ btnAdd.addEventListener('click', async () => {
         fats: document.getElementById('fats').value,
         calories: document.getElementById('calories').value
     }
+    const url = 'http://localhost:8000/api/addNutrition';
 
     const options = {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
     }
-
     // Clear form fields
     document.getElementById('day_type').value = '';
     document.getElementById('carbohydrates').value = '';
@@ -24,7 +24,7 @@ btnAdd.addEventListener('click', async () => {
     document.getElementById('calories').value = '';
 
     try {
-        const response = await fetch('http://localhost:8000/api/addNutrition', options);
+        const response = await fetch(url, options);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);

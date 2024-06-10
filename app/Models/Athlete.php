@@ -31,4 +31,9 @@ class Athlete extends Model
     {
         return $this->belongsTo(Trainer::class);
     }
+
+    public function nutrition()
+    {
+        return $this->hasMany(Nutrition::class, 'athlete_id	');
+    }
 }

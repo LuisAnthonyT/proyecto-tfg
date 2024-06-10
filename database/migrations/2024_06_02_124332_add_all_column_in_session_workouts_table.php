@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('rest', 30);
             $table->string('rir', 30);
             $table->string('reps', 30);
-            $table->string('weight', 30);
             $table->string('sets', 20);
-            $table->string('weight_reps', 40);
+            $table->string('weight_reps', 40)->nullable();
         });
     }
 
